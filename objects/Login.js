@@ -1,15 +1,13 @@
 var Login = function() {
-  var emailInput = element(by.model('user.email'));
-  var passwordInput = element(by.model('user.pass'));
-  //TODO ID instead of css class
-  var loginButton = element(by.css('.btn'));
-  //TODO ID instead of ng-binding
-  var divError = element(by.css('.ng-binding'));
-  //TODO ID instead of linkText
+  var emailInput = element(by.css('form[name=login] input[name=email]'));
+  var passwordInput = element(by.css('form[name=login] input[name=password]'));
+  var emailError = element(by.css('form[name=login] div[valdr-message]'));
+  var loginError = element(by.css('div[role=alert]'));
+  var loginButton = element(by.css('[type=submit]'));
   var createAccountLink = element(by.linkText('Create an Account'));
-
+  var logoutLink = element(by.linkText('Logout'));
   this.get = function() {
-    browser.get('http://devicereg.herokuapp.com/');
+    browser.get('http://localhost:9000/#/login');
   };
 
   this.setEmail = function(name) {
@@ -28,12 +26,27 @@ var Login = function() {
     loginButton.click();
   };
 
+  //TODO do something like before each this
+  /**
+   * Loggs out the user
+   */
+  this.logout = function(){
+    logoutLink.click();
+  };
+
   this.clickCreateAccount = function() {
     createAccountLink.click();
   };
 
   this.getErrorMessage = function() {
     return divError.getText();
+  };
+
+  this.login = function(){
+    this.get();
+    this.setEmail('admin@ceventis.com');
+    this.setPassword('password');
+    this.clickLoginButton();
   };
 
 };

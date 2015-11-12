@@ -29,7 +29,9 @@ var Register = function() {
   };
 
   this.clickCreateAccountButton = function() {
-    createAccountButton.click();
+    createAccountButton.click().then(function(){
+      browser.driver.sleep(1000);
+    });
   };
 
   this.getErrorMessage = function() {
