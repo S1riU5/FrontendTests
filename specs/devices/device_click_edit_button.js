@@ -1,19 +1,22 @@
 var Device = require('../../objects/Devices.js');
 var Utility = require('../../objects/Utility.js');
+var device = new Device();
 
 describe('edit device button link', function () {
 
 
     beforeEach(function () {
+        console.log('-------------------------> before');
         Utility.login();
+
     });
 
     afterEach(function () {
-        console.log('after');
+        Utility.logout();
+        console.log('------------------------->  after');
     });
 
     it('should display an error message', function () {
-        var device = new Device();
         device.get();
         device.selectSingleDeviceEdit(2);
         //unclear how to check url

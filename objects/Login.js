@@ -47,6 +47,8 @@ var Login = function() {
     this.setEmail('admin@ceventis.com');
     this.setPassword('password');
     this.clickLoginButton();
+    browser.waitForAngular();
+
   };
 
 };
