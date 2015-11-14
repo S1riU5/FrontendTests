@@ -7,7 +7,7 @@ var Utility = function(){
     };
 
     this.logout = function(){
-
+        Login.logout();
     };
 
 };

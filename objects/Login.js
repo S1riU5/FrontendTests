@@ -5,6 +5,7 @@ var Login = function() {
   var loginError = element(by.css('div[role=alert]'));
   var loginButton = element(by.css('[type=submit]'));
   var createAccountLink = element(by.linkText('Create an Account'));
+  var userbar = element(by.css('a.dropdown-toggle'));
   var logoutLink = element(by.linkText('Logout'));
   this.get = function() {
     browser.get('http://localhost:9000/#/login');
@@ -31,7 +32,12 @@ var Login = function() {
    * Loggs out the user
    */
   this.logout = function(){
+    this.get();
+    userbar.click();
+    //expect(browser.getLocationAbsUrl()).toBe('/devices/test');
     logoutLink.click();
+    browser.waitForAngular();
+
   };
 
   this.clickCreateAccount = function() {

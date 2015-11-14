@@ -23,6 +23,11 @@ describe('edit device button link', function () {
         expect(browser.getLocationAbsUrl()).toBe('/devices/3/edit');
     });
 
+
+    it('should display the coorect informations by clickong on the view button',function(){
+       device.get();
+    });
+
 });
 
 
