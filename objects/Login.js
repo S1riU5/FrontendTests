@@ -22,9 +22,6 @@ var Login = function() {
     loginButton.click();
   };
 
-  this.clickLoginButton = function() {
-    loginButton.click();
-  };
 
   //TODO do something like before each this
   /**
@@ -46,6 +43,13 @@ var Login = function() {
     this.get();
     this.setEmail('admin@ceventis.com');
     this.setPassword('password');
+    this.clickLoginButton();
+  };
+
+  this.login = function(email, password){
+    this.get();
+    this.setEmail(email);
+    this.setPassword(password);
     this.clickLoginButton();
   };
 

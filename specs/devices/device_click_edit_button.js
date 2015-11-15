@@ -8,7 +8,8 @@ describe('edit device button link', function () {
         Utility.login();
     });
 
-    afterEach(function () {
+
+    (function () {
         console.log('after');
     });
 
