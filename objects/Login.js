@@ -69,12 +69,12 @@ var Login = function() {
 
   };
 
-  this.login = function(email, password){
-    this.get();
-    this.setEmail(email);
-    this.setPassword(password);
-    this.clickLoginButton();
-  };
+  //this.login = function(email, password){
+  //  this.get();
+  //  this.setEmail(email);
+  //  this.setPassword(password);
+  //  this.clickLoginButton();
+  //};
 
 };
 module.exports = new Login();
