@@ -2,13 +2,13 @@ exports.config = {
   // The address of a running selenium server.
   seleniumAddress: 'http://localhost:4444/wd/hub',
 
-	 multiCapabilities: [{
-	  'browserName': 'chrome',
-			}
+	 multiCapabilities: [//{
+	  //'browserName': 'chrome',
+		//	}
        //,
-     //  {
-	//	'browserName': 'firefox',
-	//}
+       {
+		'browserName': 'firefox',
+	}
      ],
 
   // Spec patterns are relative to the location of the spec file. They may
