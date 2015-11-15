@@ -37,9 +37,6 @@ var Login = function() {
     loginButton.click();
   };
 
-  this.clickLoginButton = function() {
-    loginButton.click();
-  };
 
   //TODO do something like before each this
   /**
@@ -70,6 +67,13 @@ var Login = function() {
     this.clickLoginButton();
     browser.waitForAngular();
 
+  };
+
+  this.login = function(email, password){
+    this.get();
+    this.setEmail(email);
+    this.setPassword(password);
+    this.clickLoginButton();
   };
 
 };
