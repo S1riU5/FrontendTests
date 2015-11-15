@@ -6,7 +6,7 @@ var Utility = function(){
         Login.login();
     };
 
-    this.logout = function(){
+    this.logout = function(EC){
         Login.logout();
     };
 

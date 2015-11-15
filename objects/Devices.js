@@ -1,11 +1,12 @@
 var Devices = function () {
 
+    var URL = 'http://localhost:9000/#/devices';
+    var URLLIVE = 'http://devicereg.herokuapp.com/#/login';
     var expandNavSpan = element(by.css('.caret'));
     var logoutLink = element(by.linkText('Logout'));
     var createDevicee = element(by.css('button[ui-sref="app.device.new"]'));
-    //var allDevices = element(by.repeater('device in devices')).$$('md-card');
     var allDevices = element.all(by.tagName('md-card'));
-    var URL = 'http://localhost:9000/#/devices';
+    var deviceBody = element();
 
 
     /**
@@ -61,6 +62,10 @@ var Devices = function () {
      */
     this.get = function () {
         browser.get(URL);
+
+
+
+
 
     };
 

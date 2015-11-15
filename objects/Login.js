@@ -1,4 +1,13 @@
 var Login = function() {
+  /**
+   * Staging and Live enviroment URL's
+   */
+  var URLLIVE ='http://devicereg.herokuapp.com/#/login';
+  var URL ='http://localhost:9000/#/login';
+
+  /**
+   * All Elements
+   */
   var emailInput = element(by.css('form[name=login] input[name=email]'));
   var passwordInput = element(by.css('form[name=login] input[name=password]'));
   var emailError = element(by.css('form[name=login] div[valdr-message]'));
@@ -7,8 +16,13 @@ var Login = function() {
   var createAccountLink = element(by.linkText('Create an Account'));
   var userbar = element(by.css('a.dropdown-toggle'));
   var logoutLink = element(by.linkText('Logout'));
+
+  /**
+   * Open up the browser with the Log in URL selected URL staging
+   * LIVEURL: live
+   */
   this.get = function() {
-    browser.get('http://localhost:9000/#/login');
+    browser.get(URL);
   };
 
   this.setEmail = function(name) {
@@ -34,9 +48,10 @@ var Login = function() {
   this.logout = function(){
     this.get();
     userbar.click();
-    //expect(browser.getLocationAbsUrl()).toBe('/devices/test');
+    browser.waitForAngular();
     logoutLink.click();
     browser.waitForAngular();
+
 
   };
 
