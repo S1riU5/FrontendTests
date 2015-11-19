@@ -1,7 +1,7 @@
 exports.config = {
     // The address of a running selenium server.
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    implicitWaitTimeout: 300,
+    implicitWaitTimeout: 400,
     emailMockServer:'local@ceventis.com',
     passwordMockServer: 'password',
 
@@ -20,12 +20,15 @@ exports.config = {
     suites: {
         login: ['specs/login/login_success.js', 'specs/login/login_no_success.js'],
         register: ['specs/register/register_no_success.js'],
-        devices: ['specs/devices/device_click_edit_button.js']
+        devices: ['specs/devices/device_overview_functionality.js'],
+        deviceView:['specs/devices/device_view_page.js']
     },
 
     // Options to be passed to Jasmine-node.
     jasmineNodeOpts: {
         showColors: true // Use colors in the command line report.
     }
+
+
 };
 

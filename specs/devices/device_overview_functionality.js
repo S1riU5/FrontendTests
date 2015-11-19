@@ -27,9 +27,9 @@ describe('edit device button link', function () {
     it('should delete a device by clicking on the delete icon',function(){
         devicePage = new Devices();
         devicePage.get();
-        console.log(expect(devicePage.getDeviceCount()).toBe(9));
+        expect(devicePage.getDeviceCount()).toBe(9);
         devicePage.deletDevice(2);
-        console.log(expect(devicePage.getDeviceCount()).toBe(8));
+        expect(devicePage.getDeviceCount()).toBe(8);
     });
 
     it('should open the device view Page by clicking on the VIEW link',function(){
@@ -44,7 +44,8 @@ describe('edit device button link', function () {
         devicePage = new Devices();
         devicePage.get();
         devicePage.clickCreateNewDevice();
-
+        expect(browser.getLocationAbsUrl()).toBe('/devices/new');
+        //devicePage.get();
     });
 
 });
