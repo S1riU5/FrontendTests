@@ -26,12 +26,30 @@ var Devices = function () {
     };
 
     /**
+     * Select one device and returns an object with the device preview data
+     *
+     * @param position
+     * @returns {{name: *, serialNumber: (XMLList|*), category: (XMLList|*), group: (XMLList|*)}}
+     */
+    this.getDeviceInformations = function(position){
+
+        var currentDevice = allDevices.get(position).element(by.tagName('ul')).all(by.tagName('li'));
+        return {
+            serialNumber: currentDevice.get(0).getText(),
+            category: currentDevice.get(1).getText(),
+            group: currentDevice.get(2).getText()
+
+        };
+    };
+
+    /**
      * clicks the view button on a specific element
      *
      * @param position position of the current position
      */
     this.selectSingleDeviceView = function (position) {
-        allDevices.click();
+        allDevices.get(position).element(by.linkText('VIEW')).click();
+
     };
 
     /**

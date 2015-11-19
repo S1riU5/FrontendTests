@@ -5,6 +5,9 @@ var Login = function() {
   var URLLIVE ='http://devicereg.herokuapp.com/#/login';
   var URL ='http://localhost:9000/#/login';
 
+
+
+
   /**
    * All Elements
    */
@@ -61,9 +64,10 @@ var Login = function() {
   };
 
   this.login = function(){
+    var conf = require('../conf.js');
     this.get();
-    this.setEmail('admin@ceventis.com');
-    this.setPassword('password');
+    this.setEmail(conf.config.emailMockServer);
+    this.setPassword(conf.config.passwordMockServer);
     this.clickLoginButton();
     browser.waitForAngular();
 
