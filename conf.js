@@ -2,10 +2,10 @@ exports.config = {
   // The address of a running selenium server.
   seleniumAddress: 'http://localhost:4444/wd/hub',
 
-	 multiCapabilities: [//{
-	  //'browserName': 'chrome',
-		//	}
-       //,
+	 multiCapabilities: [{
+	  'browserName': 'chrome',
+			}
+       ,
        {
 		'browserName': 'firefox',
 	}
@@ -15,7 +15,7 @@ exports.config = {
   // include glob patterns.
   suites: {
     login: ['specs/login/login_success.js', 'specs/login/login_no_success.js'],
-    register: ['specs/register/register_no_success.js'],
+    register: ['specs/register/create_account_no_success.js'],
     devices: ['specs/devices/device_click_edit_button.js']
   },
 

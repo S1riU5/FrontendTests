@@ -22,7 +22,7 @@ var Login = function() {
    * LIVEURL: live
    */
   this.get = function() {
-    browser.get(URL);
+    browser.get(URLLIVE);
   };
 
   this.setEmail = function(name) {
@@ -45,19 +45,15 @@ var Login = function() {
   this.logout = function(){
     this.get();
     userbar.click();
-    browser.waitForAngular();
     logoutLink.click();
-    browser.waitForAngular();
-
-
   };
 
   this.clickCreateAccount = function() {
     createAccountLink.click();
   };
 
-  this.getErrorMessage = function() {
-    return divError.getText();
+  this.getLogInErrorMessage = function() {
+    return loginError.getText();
   };
 
   this.login = function(){
@@ -65,16 +61,13 @@ var Login = function() {
     this.setEmail('admin@ceventis.com');
     this.setPassword('password');
     this.clickLoginButton();
-    browser.waitForAngular();
-
   };
 
-  //this.login = function(email, password){
-  //  this.get();
-  //  this.setEmail(email);
-  //  this.setPassword(password);
-  //  this.clickLoginButton();
-  //};
-
+  this.login = function(email, password){
+    this.get();
+    this.setEmail(email);
+    this.setPassword(password);
+    this.clickLoginButton();
+  };
 };
 module.exports = new Login();
