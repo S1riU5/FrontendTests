@@ -4,7 +4,7 @@ var Devices = function () {
     var URLLIVE = 'http://devicereg.herokuapp.com/#/login';
     var expandNavSpan = element(by.css('.caret'));
     var logoutLink = element(by.linkText('Logout'));
-    var createDevicee = element(by.css('button[ui-sref="app.device.new"]'));
+    var createDevice = element(by.css('button[href="#/devices/new"]'));
     var allDevices = element.all(by.tagName('md-card'));
     var deviceBody = element();
 
@@ -26,12 +26,48 @@ var Devices = function () {
     };
 
     /**
+     * Select one device and returns an object with the device preview data
+     *
+     * @param position
+     * @returns {{name: *, serialNumber: (XMLList|*), category: (XMLList|*), group: (XMLList|*)}}
+     */
+    this.getDeviceInformations = function(position){
+        var currentDevice = allDevices.get(position).element(by.tagName('ul')).all(by.tagName('li'));
+    };
+
+    /**
      * clicks the view button on a specific element
      *
      * @param position position of the current position
      */
     this.selectSingleDeviceView = function (position) {
-        allDevices.click();
+        allDevices.get(position).element(by.linkText('VIEW')).click();
+
+    };
+
+    /**
+     * returns the Number of all visible Device Objects
+     *
+     * @returns {number of devices as promise object}
+     */
+    this.getDeviceCount = function(){
+        return allDevices.count();
+    };
+
+    /**
+     * Clicks on the create new device button
+     */
+    this.clickCreateNewDevice = function(){
+        createDevice.click();
+    };
+
+    /**
+     * delete a specific device
+     *
+     * @param position of the device
+     */
+    this.deletDevice = function(position){
+        allDevices.get(position).element(by.css('md-icon[md-font-icon="mdi mdi-delete-variant"]')).click();
     };
 
     /**

@@ -9,8 +9,6 @@ var Utility = function(){
     this.logout = function(EC){
         Login.logout();
     };
-
 };
-
 
 module.exports = new Utility();
