@@ -11,8 +11,6 @@ var Devices = function () {
 
     /**
      * Take in the login object to build the preconditions
-     *
-     * @type {Login|exports|module.exports}
      */
     var login = require('./Login.js');
 
@@ -31,7 +29,7 @@ var Devices = function () {
      * @param position
      * @returns {{name: *, serialNumber: (XMLList|*), category: (XMLList|*), group: (XMLList|*)}}
      */
-    this.getDeviceInformations = function(position){
+    this.getDeviceInformations = function (position) {
         var currentDevice = allDevices.get(position).element(by.tagName('ul')).all(by.tagName('li'));
     };
 
@@ -48,16 +46,24 @@ var Devices = function () {
     /**
      * returns the Number of all visible Device Objects
      *
-     * @returns {number of devices as promise object}
+     * TODO Refactor this method*
+     *
      */
-    this.getDeviceCount = function(){
+    this.getDeviceCount = function () {
         return allDevices.count();
     };
+
+    //function getTextFromElement(tempObject) {
+    //    $('a.some-link').getText().then(function (txt) {
+    //        tempObject.textFromFirstPage = txt;
+    //    });
+    //}
+
 
     /**
      * Clicks on the create new device button
      */
-    this.clickCreateNewDevice = function(){
+    this.clickCreateNewDevice = function () {
         createDevice.click();
     };
 
@@ -66,7 +72,7 @@ var Devices = function () {
      *
      * @param position of the device
      */
-    this.deletDevice = function(position){
+    this.deletDevice = function (position) {
         allDevices.get(position).element(by.css('md-icon[md-font-icon="mdi mdi-delete-variant"]')).click();
     };
 
@@ -100,9 +106,6 @@ var Devices = function () {
         browser.get(URL);
 
 
-
-
-
     };
 
     /**
@@ -115,7 +118,7 @@ var Devices = function () {
     /**
      * TODO Refactor the before step
      *
-     * Loggs out the user
+     * Logs out the user
      */
     this.logout = function () {
         expandNavSpan.click();

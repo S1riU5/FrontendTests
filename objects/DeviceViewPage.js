@@ -45,6 +45,10 @@ var ViewDevice = function(){
         editButton.click();
     };
 
+    this.getPosition = function(){
+        return position;
+    };
+
 
     //
     //this.compareHeadding = function(compareValue){
