@@ -3,7 +3,7 @@ var Utility = require('../../objects/Utility.js');
 var config = require('../../conf.js');
 
 
-describe('edit device button link', function () {
+describe('Device overview page', function () {
     browser.driver.manage().timeouts().implicitlyWait(config.config.implicitWaitTimeout);
 
     beforeEach(function () {

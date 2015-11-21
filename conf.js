@@ -21,7 +21,8 @@ exports.config = {
         login: ['specs/login/login_success.js', 'specs/login/login_no_success.js'],
         register: ['specs/register/register_no_success.js'],
         devices: ['specs/devices/device_overview_functionality.js'],
-        deviceView:['specs/devices/device_view_page.js']
+        deviceView:['specs/devices/device_view_page.js'],
+        deviceEdit:['specs/devices/device_edit_page.js']
     },
 
     // Options to be passed to Jasmine-node.
