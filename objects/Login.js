@@ -6,8 +6,6 @@ var Login = function() {
   var URL ='http://localhost:9000/#/login';
 
 
-
-
   /**
    * All Elements
    */
