@@ -10,7 +10,7 @@ var Forgotpwd = function() {
     //TODO ID instead of css class
     var resetPasswordButton = element(by.css('.btn'));
     //TODO check if correct ID
-    var divError = element(by.id('serial_error'));
+    var divError = element(by.id('incorrect_email'));
 
     this.get = function() {
         browser.get(URLLIVE);
@@ -21,9 +21,7 @@ var Forgotpwd = function() {
     };
 
     this.clickResetPasswordButton = function() {
-        resetPasswordButton.click().then(function(){
-            browser.driver.sleep(1000);
-        });
+        resetPasswordButton.click();
     };
 
     this.getErrorMessage = function() {

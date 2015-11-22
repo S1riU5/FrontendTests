@@ -3,10 +3,11 @@ var Login = require('./Login.js');
 var Utility = function(){
 
     this.login = function(){
-        Login.login();
+        Login.login("admin@ceventis.com", "password");
+        expect(browser.getLocationAbsUrl()).toBe('/devices');
     };
 
-    this.logout = function(EC){
+    this.logout = function(){
         Login.logout();
     };
 };

@@ -14,8 +14,8 @@ var Admin = function() {
     var addAnotherLink = element(by.linkText('+ Add another'));
     var generateCodeButton = element.all(by.css('[type=submit]')).get(1);
     var inviteButton = element.all(by.css('[type=submit]')).get(0);
-    var generatedCodeDiv = element.all(by.css('div.wrapper-xs b b-2x b-primaryd')).get(0);
-
+    var generatedCodeDiv = element.all(by.css('div.row')).get(6);
+    var successMessage =
 
     /**
      * Open up the browser with the Log in URL selected URL staging
@@ -48,5 +48,14 @@ var Admin = function() {
         addAnotherLink.click();
     };
 
+    this.getGeneratedCodeLength = function() {
+        return generatedCodeDiv.getText();
+    };
+
+    this.getSuccessInviteMessage = function() {
+        return successMessage.getText();
+    };
+
+
 };
-module.exports = new Login();
+module.exports = new Admin();
