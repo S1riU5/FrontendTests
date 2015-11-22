@@ -15,31 +15,42 @@ var Login = function() {
   var loginError = element(by.css('div[role=alert]'));
   var loginButton = element(by.css('[type=submit]'));
   var createAccountLink = element(by.linkText('Create an Account'));
+  var forgotPasswordLink = element(by.linkText('Forgot password?'));
   var userbar = element(by.css('a.dropdown-toggle'));
   var logoutLink = element(by.linkText('Logout'));
 
   /**
    * Open up the browser with the Log in URL selected URL staging
-   * LIVEURL: live
    */
   this.get = function() {
     browser.get(URLLIVE);
   };
 
+    /**
+     * Fills the email input with a given string.
+     *
+     * @param email which should fill the Input
+     */
   this.setEmail = function(name) {
     emailInput.sendKeys(name);
   };
 
-  this.setPassword = function(name) {
-    passwordInput.sendKeys(name);
+    /**
+     * Fills the password input with a given string.
+     *
+     * @param password which should fill the Input
+     */
+  this.setPassword = function(password) {
+    passwordInput.sendKeys(password);
   };
 
+    /**
+     * Clicks the 'Login' button
+     */
   this.clickLoginButton = function() {
     loginButton.click();
   };
 
-
-  //TODO do something like before each this
   /**
    * Loggs out the user
    */
@@ -49,14 +60,32 @@ var Login = function() {
     logoutLink.click();
   };
 
+  /**
+   * Clicks the 'Create an Account' link
+   */
   this.clickCreateAccount = function() {
     createAccountLink.click();
   };
 
+  /**
+   * Clicks the 'Forgot password?' link
+   */
+  this.forgotPasswordLink = function() {
+    forgotPasswordLink.click();
+  };
+
+    /**
+     * Returns the error message text
+     *
+     * @returns the error message text
+     */
   this.getLogInErrorMessage = function() {
     return loginError.getText();
   };
 
+    /**
+     * Loggs the user in with default values
+     */
   this.login = function(){
     var conf = require('../conf.js');
     this.get();
@@ -65,6 +94,12 @@ var Login = function() {
     this.clickLoginButton();
   };
 
+    /**
+     * Loggs the user in with given email and password
+     *
+     * @param email of the user which should log in
+     * @param password of the user which should log in
+     */
   this.login = function(email, password){
     this.get();
     this.setEmail(email);

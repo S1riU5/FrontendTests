@@ -4,8 +4,6 @@ var config = require('../../conf.js');
 
 describe('invite a collaborator',function(){
 
-
-    browser.manage().timeouts().pageLoadTimeout(10000);  // 10 seconds
     beforeEach(function () {
         console.log('-------------------------> before');
         Utility.login();

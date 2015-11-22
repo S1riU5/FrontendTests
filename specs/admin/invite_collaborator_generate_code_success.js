@@ -4,8 +4,6 @@ var config = require('../../conf.js');
 
 describe('generate a invitation code for collaborators',function(){
 
-
-    browser.manage().timeouts().pageLoadTimeout(10000);  // 10 seconds
     beforeEach(function () {
         console.log('-------------------------> before');
         Utility.login();
