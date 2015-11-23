@@ -49,19 +49,6 @@ var ViewDevice = function(){
         return position;
     };
 
-
-    //
-    //this.compareHeadding = function(compareValue){
-    //    expect(headding).toBe(compareValue);
-    //    //expect(login.getErrorMessage()).toBe('Invalid credentials');
-    //
-    //};
-    //
-    //this.compareCategory = function(compareValue){
-    //    var deviceCategory = deviceSection.element(by.css())
-    //    expect()
-    //};
-
 };
 
 
