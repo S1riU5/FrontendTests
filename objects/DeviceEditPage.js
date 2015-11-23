@@ -64,7 +64,7 @@ var EditDevice = function () {
     this.selectCategory = function (position) {
         editDropdowns.get(CATEGORY_POSITION).click();
         selectDropdowPosition(position);
-        browser.sleep(10000);
+        //browser.sleep(10000);
     };
 
 
@@ -97,6 +97,7 @@ var EditDevice = function () {
      * @param position
      */
     var selectDropdowPosition = function (position) {
+        browser.sleep(1000);
         element.all(by.css('a.ui-select-choices-row-inner')).get(position).click();
 
     };
@@ -199,7 +200,7 @@ var EditDevice = function () {
      * Toggles the maintenance section to active or inactive
      */
     this.toggleMaintenanceMode = function () {
-        toggleAktviButtons.get(MAINTENANCE_TOGGLE).click();
+        browser.executeScript("$('input[type=checkbox]').first().click()")
     };
 
 
@@ -207,7 +208,7 @@ var EditDevice = function () {
      * Toggles the Notifications section to active or inactive
      */
     this.toggleNotificationMode = function () {
-        toggleAktviButtons.get(NOTIFICATION_TOGGLE).click();
+        browser.executeScript("$('input[type=checkbox]').last().click()")
     };
 
     /**
@@ -216,8 +217,10 @@ var EditDevice = function () {
      * @param intervalPosition
      */
     this.selectMaintenanceInterval = function (intervalPosition) {
-        editDropdowns.get(INTERVAL_POSITION);
-        selectDropdowPosition(intervalPosition).click();
+        editDropdowns.get(INTERVAL_POSITION).click();
+        browser.waitForAngular();
+        //console.log(expect());
+        //selectDropdowPosition(intervalPosition);
     };
 
     /**

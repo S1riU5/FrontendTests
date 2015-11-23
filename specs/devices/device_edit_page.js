@@ -30,12 +30,13 @@ describe('device edit page tests',function(){
         deviceEditPage.addDesignation("My Designation");
         deviceEditPage.addSerialNumber("123123123");
         deviceEditPage.addComment("Hey This is my Comment");
-        //deviceEditPage.toggleMaintenanceMode();
-        //deviceEditPage.selectMaintenanceInterval(1);
-        //eviceEditPage.setPeriodStart('01.01.2017');
+        deviceEditPage.toggleMaintenanceMode();
+        deviceEditPage.selectMaintenanceInterval(1);
+        deviceEditPage.setPeriodStart('01.01.2017');
         deviceEditPage.toggleNotificationMode();
         deviceEditPage.selectReminder(0);
         deviceEditPage.setNotificationEmail('info@example.com')
+        deviceEditPage.clickSaveButton();
 
     });
 
