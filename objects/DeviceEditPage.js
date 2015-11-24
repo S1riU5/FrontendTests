@@ -39,8 +39,6 @@ var EditDevice = function () {
     var designation = element(by.css('input[name="designation"]'));
     var serialNumber = element(by.css('input[name="serial"]'));
     var comment = element(by.css('textarea[name="comment"]'));
-    //TODO This does not work inside the Toggle functions
-    var toggleAktviButtons = element.all(by.css('label.i-switch i'));
     var periodeStart = element(by.css('input[name="period"]'));
     var email = element(by.css('input[name="email"]'));
 

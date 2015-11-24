@@ -23,7 +23,7 @@ var Login = function() {
    * Open up the browser with the Log in URL selected URL staging
    */
   this.get = function() {
-    browser.get(URLLIVE);
+    browser.get(URL);
   };
 
     /**
@@ -86,7 +86,7 @@ var Login = function() {
     /**
      * Loggs the user in with default values
      */
-  this.login = function(){
+  this.loginNoInput = function(){
     var conf = require('../conf.js');
     this.get();
     this.setEmail(conf.config.emailMockServer);

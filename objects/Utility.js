@@ -3,7 +3,7 @@ var Login = require('./Login.js');
 var Utility = function(){
 
     this.login = function(){
-        Login.login();
+        Login.loginNoInput();
         expect(browser.getLocationAbsUrl()).toBe('/devices');
     };
 
