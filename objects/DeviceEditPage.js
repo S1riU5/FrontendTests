@@ -60,9 +60,9 @@ var EditDevice = function () {
      * @param position
      */
     this.selectCategory = function (position) {
-        editDropdowns.get(CATEGORY_POSITION).click();
-        selectDropdowPosition(position);
-        //browser.sleep(10000);
+        editDropdowns.get(CATEGORY_POSITION).click().then(function(){
+            selectDropdowPosition(position);
+        });
     };
 
 
@@ -257,7 +257,6 @@ var EditDevice = function () {
     this.addNotificationEmail = function(addEmail){
         email.sendKeys(addEmail);
     }
-
 
 };
 

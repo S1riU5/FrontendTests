@@ -1,0 +1,25 @@
+{
+  "name": "frontend-tests",
+  "version": "1.0.0",
+  "description": "Device Registration Tests",
+  "main": "conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/S1riU5/FrontentTests.git"
+  },
+  "keywords": [
+    "DevRegTest"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/S1riU5/FrontentTests/issues"
+  },
+  "homepage": "https://github.com/S1riU5/FrontentTests#readme",
+  "dependencies": {
+    "protractor": "^3.0.0"
+  }
+}

@@ -1,7 +1,7 @@
 exports.config = {
     // The address of a running selenium server.
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    implicitWaitTimeout: 400,
+    implicitWaitTimeout: 500,
     emailMockServer:'local@ceventis.com',
     passwordMockServer: 'password',
 
