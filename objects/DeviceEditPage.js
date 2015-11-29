@@ -10,6 +10,7 @@ var EditDevice = function () {
     var INTERVAL_POSITION = 3;
     var REMINDER_POSITION = 4;
 
+
     /**
      * Toggle buttons
      * @type {number}
@@ -43,6 +44,9 @@ var EditDevice = function () {
     var email = element(by.css('input[name="email"]'));
 
 
+    var isMaintenance = false;
+    var isNotification = false;
+
     /**
      * Opens the Edit dive page of an specific device
      *
@@ -60,7 +64,7 @@ var EditDevice = function () {
      * @param position
      */
     this.selectCategory = function (position) {
-        editDropdowns.get(CATEGORY_POSITION).click().then(function(){
+        editDropdowns.get(CATEGORY_POSITION).click().then(function () {
             selectDropdowPosition(position);
         });
     };
@@ -128,10 +132,10 @@ var EditDevice = function () {
     /**
      * Append a label to into the label field
      *
-     * @param addLble
+     * @param appendLble
      */
-    this.addLable = function (addLble) {
-        lable.sendKeys(" " + addLble);
+    this.appendLable = function (appendLble) {
+        lable.sendKeys(" " + appendLble);
     };
 
     /**
@@ -147,10 +151,10 @@ var EditDevice = function () {
     /**
      * Append a string on the designation field
      *
-     * @param addDesignation
+     * @param appendDesignation
      */
-    this.addDesignation = function (addDesignation) {
-        designation.sendKeys(addDesignation);
+    this.appendDesignation = function (appendDesignation) {
+        designation.sendKeys(appendDesignation);
     };
 
     /**
@@ -167,10 +171,10 @@ var EditDevice = function () {
     /**
      * Append a value on the serial number field
      *
-     * @param addSerialNumber
+     * @param appendSerialNumber
      */
-    this.addSerialNumber = function (addSerialNumber) {
-        serialNumber.sendKeys(addSerialNumber);
+    this.appendSerialNumber = function (appendSerialNumber) {
+        serialNumber.sendKeys(appendSerialNumber);
     };
 
     /**
@@ -187,10 +191,10 @@ var EditDevice = function () {
     /**
      * Append a value on the comment field
      *
-     * @param addComment
+     * @param appendComment
      */
-    this.addComment = function (addComment) {
-        comment.sendKeys(addComment);
+    this.appendComment = function (appendComment) {
+        comment.sendKeys(appendComment);
     };
 
 
@@ -222,10 +226,11 @@ var EditDevice = function () {
     };
 
     /**
-     * insert a
+     * insert a date into the
      * @param startDate
      */
-    this.setPeriodStart = function(startDate){
+    this.setPeriodStart = function (startDate) {
+        periodeStart.clear();
         periodeStart.sendKeys(startDate);
     };
 
@@ -234,7 +239,7 @@ var EditDevice = function () {
      *
      * @param reminderInterval
      */
-    this.selectReminder = function(reminderInterval){
+    this.selectReminder = function (reminderInterval) {
         editDropdowns.get(REMINDER_POSITION).click();
         selectDropdowPosition(reminderInterval);
     };
@@ -244,7 +249,7 @@ var EditDevice = function () {
      *
      * @param newEmail
      */
-    this.setNotificationEmail = function(newEmail){
+    this.setNotificationEmail = function (newEmail) {
         email.clear();
         email.sendKeys(newEmail);
     };
@@ -252,11 +257,105 @@ var EditDevice = function () {
     /**
      * Append a value on the email field
      *
-     * @param addEmail
+     * @param appendEmail
      */
-    this.addNotificationEmail = function(addEmail){
-        email.sendKeys(addEmail);
-    }
+    this.appendNotificationEmail = function (appendEmail) {
+        email.sendKeys(appendEmail);
+    };
+
+    /**
+     * Set the values on the device section
+     * @param label
+     * @param designation
+     * @param serial
+     * @param comment
+     */
+    this.fillInNewInputFieldsOnDeviceSection = function (label, designation, serial, comment) {
+        this.setLale(label);
+        this.setDesignation(designation);
+        this.setSerialNumber(serial);
+        this.setComment(comment);
+    };
+
+
+    /**
+     * Append text to the input fields on the device section
+     * @param label
+     * @param designation
+     * @param serial
+     * @param comment
+     */
+    this.appendToInputFieldsOnDeviceSection = function (label, designation, serial, comment) {
+        this.appendLable(label);
+        this.appendDesignation(designation);
+        this.appendSerialNumber(serial);
+        this.appendComment(comment);
+    };
+
+    /**
+     * Select all dropdowns from the divece section
+     * @param categoryPosition
+     * @param groupPosition
+     * @param mediumPosition
+     */
+    this.selectDropdownsFromDeviceSection = function (categoryPosition, groupPosition, mediumPosition) {
+        this.selectCategory(categoryPosition);
+        this.selectDeviceGroup(groupPosition);
+        this.selectMedium(mediumPosition);
+    };
+
+    /**
+     * Set the maintenance section
+     * @param interval
+     * @param date
+     */
+    this.setMaintenanceSection = function (interval, date) {
+
+        if (!isMaintenance) {
+            isMaintenance = true;
+            this.toggleMaintenanceMode();
+        }
+
+            this.selectMaintenanceInterval(interval);
+            this.setPeriodStart(date);
+    };
+
+
+    /**
+     * disables the maintenance section
+     */
+    this.disableMaintenanceSection = function(){
+        if (isMaintenance) {
+            isMaintenance = false;
+            this.toggleMaintenanceMode();
+        }
+    };
+
+    /**
+     * Set the Notification section
+     * @param reminderInterval
+     * @param email
+     */
+    this.setNotificationSection = function(reminderInterval,email){
+
+        if(!isNotification){
+            isNotification = true;
+            this.toggleNotificationMode();
+        }
+
+        this.selectReminder(reminderInterval);
+        this.setNotificationEmail(email);
+    };
+
+    /**
+     * disables the notification section
+     */
+    this.disableNotifcationSection = function(){
+        if(isNotification){
+            isNotification = false;
+            this.toggleNotificationMode();
+        }
+    };
 
 };
 

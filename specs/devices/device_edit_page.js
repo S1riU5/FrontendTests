@@ -23,20 +23,15 @@ describe('device edit page tests',function(){
     it('saving a device should redirect to the device page',function(){
         deviceEditPage = new editPage();
         deviceEditPage.get(2);
-        deviceEditPage.selectCategory(0);
-        deviceEditPage.selectDeviceGroup(1);
-        deviceEditPage.selectMedium(0);
-        deviceEditPage.addLable("My Label");
-        deviceEditPage.addDesignation("My Designation");
-        deviceEditPage.addSerialNumber("123123123");
-        deviceEditPage.addComment("Hey This is my Comment");
-        deviceEditPage.toggleMaintenanceMode();
-        deviceEditPage.selectMaintenanceInterval(1);
-        deviceEditPage.setPeriodStart('01.01.2017');
-        deviceEditPage.toggleNotificationMode();
-        deviceEditPage.selectReminder(0);
-        deviceEditPage.setNotificationEmail('info@example.com')
+        deviceEditPage.fillInNewInputFieldsOnDeviceSection("Label1","Name","1234-5678-93","Comment");
+        deviceEditPage.selectDropdownsFromDeviceSection(1,1,1);
+        deviceEditPage.setMaintenanceSection(1,"2015-01-01");
+        deviceEditPage.setNotificationSection(1,"info@ceventis.com");
+        expect(browser.getLocationAbsUrl()).toBe('/devices/2/edit');
         deviceEditPage.clickSaveButton();
+        browser.waitForAngular();
+        expect(browser.getLocationAbsUrl()).toBe('/devices');
+
 
     });
 
