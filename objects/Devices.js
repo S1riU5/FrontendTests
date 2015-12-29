@@ -6,7 +6,7 @@ var Devices = function () {
     var logoutLink = element(by.linkText('Logout'));
     var createDevice = element(by.css('button[href="#/devices/new"]'));
     var allDevices = element.all(by.tagName('md-card'));
-    var deviceBody = element();
+    var searchField = element(by.css('input[type=text]'));
 
 
     /**
@@ -124,6 +124,25 @@ var Devices = function () {
         expandNavSpan.click();
         logoutLink.click();
     };
+
+
+    /**
+     * enter a value into the search field
+     * @param searchTerm
+     */
+    this.search = function(searchTerm){
+        searchField.clear();
+        searchField.sendKeys(searchTerm);
+    }
+
+    /**
+     * append a a string to the search term
+     * @param searchTerm
+     */
+    this.appendSearch = function(searchTerm){
+        searchField.sendKeys(searchTerm);
+
+    }
 };
 /**
  * Make the Device object visible to other files
