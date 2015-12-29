@@ -11,5 +11,4 @@ Feature: Login Page
     And I enter a valid password into the password field
     And I click the submit button
     Then I should be logged in
-    When Bla hallo
 

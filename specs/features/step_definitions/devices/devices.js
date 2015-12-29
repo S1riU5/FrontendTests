@@ -29,28 +29,28 @@ var steps = function(){
     });
 
     this.When(/^I enter a valid email into the email field$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
+        login.enterEmail(this,"admin@ceventis.com",function(){
+            callback();
+        });
     });
 
     this.When(/^I enter a valid password into the password field$/, function (callback) {
         // Write code here that turns the phrase above into concrete actions
-        callback.pending();
+        login.enterPassword(this,"password",function(){
+            callback();
+        })
     });
 
     this.When(/^I click the submit button$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
+        login.submitForm(this,function(){
+           callback();
+        });
     });
 
     this.Then(/^I should be logged in$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
-    });
-
-    this.When(/^Bla hallo$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
+        login.isLoggedIn(this,function(){
+            callback();
+        });
     });
 
 
